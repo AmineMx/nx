@@ -426,11 +426,7 @@ function createApp(tmpDir: string, name: string, parsedArgs: WorkspaceArgs) {
   console.log(command);
 
   let nxWorkspaceRoot = process.cwd().replace(/\\/g, '/');
-  if (process.platform === 'win32') {
-    nxWorkspaceRoot = `\\"${nxWorkspaceRoot}\\"`;
-  } else {
-    nxWorkspaceRoot = `"${nxWorkspaceRoot}"`;
-  }
+  
 
   execSync(
     `${pmc.exec} tao ${command}/collection.json --cli=${cli} --nxWorkspaceRoot=${nxWorkspaceRoot}`,
